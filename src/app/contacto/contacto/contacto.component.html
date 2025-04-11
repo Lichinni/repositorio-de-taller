@@ -1,1 +1,13 @@
-<p>contacto works!</p>
+<form>
+    <label for="nombre">Nombre:</label>
+    <imput id="nombre" [(ngModel)]="usuario.nombre" name="nombre" required></imput>
+
+    <button [disabled]="!usuario.nombre">Enviar</button>
+</form>
+
+<form [FormGroup]="miFormulario">
+    <label for="email">Email:</label>
+    <imput id="email" formControlName="email"></imput>
+
+    <bottom [disabled]="miFormulario.invalid">Enviar:</bottom>
+</form>
