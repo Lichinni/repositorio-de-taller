@@ -5,9 +5,9 @@
     <button [disabled]="!usuario.nombre">Enviar</button>
 </form>
 
-<form [FormGroup]="miFormulario">
+<form [formGroup]="miFormulario">
     <label for="email">Email:</label>
-    <imput id="email" formControlName="email"></imput>
+    <input id="email" formControlName="email">
 
-    <bottom [disabled]="miFormulario.invalid">Enviar:</bottom>
+    <button [disabled]="miFormulario.invalid">Enviar:</button> 
 </form>

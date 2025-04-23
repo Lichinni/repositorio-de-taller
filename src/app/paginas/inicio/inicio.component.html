@@ -1,0 +1,28 @@
+
+
+<div *ngIf="usuario.activo">
+    <p>Bounjour, {{ usuario.nombre }}.</p>
+</div>
+<div *ngIf="!usuario.activo">
+    <p>Inicie sesión, s'il vous plît.</p>
+</div>
+
+
+<div [ngClass]="{ 'activo': usuario.activo, 'inactivo': !usuario.activo }">
+    {{ usuario.nombre }}
+</div>
+
+
+<div class="card-container">
+
+    <div *ngFor='let producto of producto; let i = index' class="card">
+        <img src="{{ producto.img }}" class="card-img-top" alt="imagen de un gato punto png">
+        <div class="card-body">
+        <h5 class="card-title">nombre: {{ producto.nombre }}</h5>
+        <p class="card-text">{{ producto.info }}</p>
+        <p>precio: ${{ producto.precio }}</p>
+        <a href="https://www.youtube.com/watch?v=s5K2gkq98Mw" class="btn btn-primary">Adquirir gato</a>
+        </div>
+    </div>
+
+</div>
