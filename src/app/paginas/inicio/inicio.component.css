@@ -56,3 +56,10 @@
         align-items: center; /*centra en pantallas chicas*/
     }
 }
+
+
+
+.carousel img{
+    width: 100%;
+    height: 400px;
+}

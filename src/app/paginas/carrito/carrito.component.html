@@ -22,15 +22,17 @@
             <td> {{item.producto.descripcion}} </td>
             <td> {{item.producto.precio | currency}} </td>
             <td>
-                <button (click)="qutarCantidad(i)">-</button>
+                <button (click)="EliminarDelCarrito(i)">-</button>
                 {{item.cantidad}}
-                <button (click)="agregarCantidad(i)">+</button>
+                <button (click)="agregarAlCarrito(i)">+</button>
             </td>
 
             <td>
-                <button (click)="eliminarProducto(item.producto.id)">eliminar</button>
+                <button (click)="EliminarDelCarrito(item.producto.id)">eliminar</button>
             </td>
 
         </tr>
     </tbody>
 </table>
+
+<button (click)="realizarCompra()" class="btn btn-succes">realizar compra</button>
