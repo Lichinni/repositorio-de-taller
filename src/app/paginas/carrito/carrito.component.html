@@ -1,5 +1,6 @@
-<h1>carrito de compras</h1>
-<div *ngIf="productosEnCarrito.length === 0">
+<h1>Carrito de Compras:</h1><br>
+
+<div *ngIf="productoEnCarrito.length === 0">
     <p>no hay productos en el carrito :P</p>
 </div>
 
@@ -16,23 +17,26 @@
     </thead>
 
     <tbody>
-        <tr *ngFor="let item of productosEnCarrito; let i = index">
-            <td><img [src]="item.producto.imagen" alt="{{item.productos.nombre}}" style="width: 50px; height: 50px;"></td>
+        <tr *ngFor="let item of productoEnCarrito; let i = index">
+            <td><img [src]="item.producto.imagen" alt="{{item.producto.nombre}}" style="width: 50px; height: 50px;"></td>
             <td> {{item.producto.nombre}} </td>
             <td> {{item.producto.descripcion}} </td>
             <td> {{item.producto.precio | currency}} </td>
             <td>
-                <button (click)="EliminarDelCarrito(i)">-</button>
+                <button (click)="eliminarProducto(i)">-</button>
                 {{item.cantidad}}
-                <button (click)="agregarAlCarrito(i)">+</button>
+                <button (click)="eliminarProducto(i)">+</button>
             </td>
 
             <td>
-                <button (click)="EliminarDelCarrito(item.producto.id)">eliminar</button>
+                <button (click)="eliminarProducto(item.producto.id)">eliminar</button>
             </td>
 
         </tr>
     </tbody>
 </table>
 
-<button (click)="realizarCompra()" class="btn btn-succes">realizar compra</button>
+
+<div *ngIf="productoEnCarrito.length > 0">
+    <button (click)="realizarCompra()" class="btn btn-succes">realizar compra</button>
+</div>

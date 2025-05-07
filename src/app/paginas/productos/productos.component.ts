@@ -11,11 +11,17 @@ import { RouterModule } from '@angular/router';
   styleUrl: './productos.component.css'
 })
 export class ProductosComponent {
-  productos=[
-    {id: 1, nombre: 'lawea uno', precio:9999, imagen:'NaN'}
-  ]
+  productos=[]
 
-  Productos: Producto[]=[]
+  Productos: Producto[]=[
+    {
+      id: 1, 
+      nombre: 'Gatete chambeando',
+       precio:100, 
+       descripcion:'Aún trabajando en la pagina.',
+        disponibilidad:true, 
+        imagen:'https://thumbs.dreamstime.com/z/retrato-de-um-gato-do-construtor-com-as-ferramentas-nas-patas-na-parede-tijolo-fundo-139925202.jpg',}
+  ]
 
   constructor (private CarritoService: CarritoService){}
 

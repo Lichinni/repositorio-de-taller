@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../modelos/producto.models';
-import { CarritoService } from '../../servicios/carrito.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CarritoService } from '../../servicios/carrito.service';
 
 @Component({
   selector: 'app-carrito',
-  imports: [CommonModule, FormsModule, CarritoService],
+  imports: [CommonModule, FormsModule],
   templateUrl: './carrito.component.html',
   styleUrl: './carrito.component.css'
 })
 export class CarritoComponent implements OnInit {
   productoEnCarrito:{producto:Producto; cantidad:number}[] = [];
 
-  constructor (private carritoService : CarritoService){}
+  constructor (private carritoService: CarritoService){}
 
   ngOnInit(): void {
     this.carritoService.carrito$.subscribe((productos) => {
@@ -34,6 +34,8 @@ export class CarritoComponent implements OnInit {
   eliminarProducto(productoId:number){
     this.carritoService.eliminarDelCarrito(productoId)
   };
+
+
 
   vaciarCarrito(){
     this.carritoService.vaciarCarrito()
