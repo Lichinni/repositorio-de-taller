@@ -1,18 +1,19 @@
 <h1>Carrito de Compras:</h1><br>
 
 <div *ngIf="productoEnCarrito.length === 0">
-    <p>no hay productos en el carrito :P</p>
+    <p>No hay productos en el carrito :P</p>
 </div>
 
 <table class="table">
     <thead>
         <tr>
-            <th>imagen</th>
-            <th>nombre</th>
-            <th>descripcion</th>
-            <th>precio</th>
-            <th>cantidad</th>
-            <th>acciones</th>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Precio total</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
         </tr>
     </thead>
 
@@ -22,10 +23,11 @@
             <td> {{item.producto.nombre}} </td>
             <td> {{item.producto.descripcion}} </td>
             <td> {{item.producto.precio | currency}} </td>
+            <td> {{item.producto.precio * item.cantidad}} </td>
             <td>
-                <button (click)="eliminarProducto(i)">-</button>
+                <button (click)="quitarCantidad(i)">-</button>
                 {{item.cantidad}}
-                <button (click)="eliminarProducto(i)">+</button>
+                <button (click)="agregarCantidad(i)">+</button>
             </td>
 
             <td>

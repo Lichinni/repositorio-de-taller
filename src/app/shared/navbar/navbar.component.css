@@ -1,0 +1,26 @@
+.icono{
+    height: 75px;
+    width: 75px;
+    padding: 10px;
+}
+
+.navbar{
+    background-color: #5c2db4;
+    width: 100%;
+}
+
+.nav-item{
+    background-color: blueviolet;
+    border-radius: 5%;
+    transition: background 0.3s ease-in-out;
+
+    display: flex;
+    justify-content: center; /*lo centra orizontalmente*/
+    gap: 20px; /*espacio entre las tarjetas*/
+    flex-wrap: wrap; /*permite que se acomoden en pantallas chicas (flexea y warpea)*/
+}
+
+.nav-item:hover{
+    background-color: rgb(255, 251, 226);
+
+}
