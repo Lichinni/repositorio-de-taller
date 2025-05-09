@@ -3,6 +3,7 @@ import { Producto } from '../../modelos/producto.models';
 import { CarritoService } from '../../servicios/carrito.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { DeseadosService } from '../../servicios/deseados.service';
 
 @Component({
   selector: 'app-productos',
@@ -50,10 +51,16 @@ export class ProductosComponent {
     }
   ]
 
-  constructor (private CarritoService: CarritoService){}
+  constructor (private CarritoService: CarritoService, private DeseadosService:DeseadosService){};
+
 
   agregar(producto:Producto){
     this.CarritoService.agregarAlCarrito(producto)
-    alert('producto en el carrito :D')
+    alert('producto en el carrito (◕‿◕)')
   };
+
+  agregarDeseados(producto:Producto){
+    this.DeseadosService.agregarEnDeseados(producto)
+    alert('Guardado en su lista de deseados (◕‿◕)')
+  }
 }

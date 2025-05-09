@@ -1,0 +1,68 @@
+/*estilos generales*/
+.body{
+    background-color: rgb(43, 116, 226);
+    color: rgb(255, 255, 255);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/*contenedor de las tarjetas*/
+.card-container{
+    display: flex;
+    justify-content: center; /*lo centra orizontalmente*/
+    gap: 20px; /*espacio entre las tarjetas*/
+    flex-wrap: wrap; /*permite que se acomoden en pantallas chicas (flexea y warpea)*/
+    padding: 20px;
+}
+
+/*estilos para la tarjeta*/
+.card{
+    width: 18rem;
+    background-color: rgb(27, 63, 105);
+    color: rgb(104, 163, 231);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 8px;
+}
+
+/*efecto cuando paso por encima de la tarjeta*/
+.card :hover{
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2)
+}
+
+/*la imagen deentro de la tarjeta*/
+.card img{
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+}
+
+/*boton esterilizado (estilizado)*/
+.card .btn{
+    background-color: rgb(56, 145, 228);
+    color: rgb(35, 61, 99);
+    border: none;
+    transition: background 0.3s ease-in-out;
+}
+.card .btn:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+.deseados{
+    background-color: rgb(56, 145, 228);
+    color: rgb(35, 61, 99);
+    border: none;
+    transition: background 0.3s ease-in-out;
+}
+.deseados:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+/*responsividad para pantallas chicas*/
+@media(max-whidth:600px){
+    .card-container{
+        flex-direction: column; /*cambia a columna*/
+        align-items: center; /*centra en pantallas chicas*/
+    }
+}

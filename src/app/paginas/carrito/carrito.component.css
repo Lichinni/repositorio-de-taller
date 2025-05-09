@@ -1,0 +1,21 @@
+.carrito-color-top{
+    background-color: rgb(0, 105, 241);
+}
+
+.carrito-color-1{
+    background-color: rgb(56, 142, 255);
+}
+
+.carrito-color-0{
+    background-color: rgb(129, 184, 255);
+}
+
+.boton-compra{
+    background-color: rgb(33, 129, 255);
+    border-radius: 5%;
+    transition: background 0.3s ease-in-out;
+}
+
+.boton-compra:hover{
+    background-color: rgb(255, 255, 255);
+}

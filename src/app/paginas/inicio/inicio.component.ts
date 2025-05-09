@@ -3,7 +3,7 @@ import { NgClass, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-inicio',
-  imports: [NgFor, NgClass],
+  imports: [NgFor],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })

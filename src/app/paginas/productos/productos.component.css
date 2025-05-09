@@ -1,7 +1,7 @@
 /*estilos generales*/
 .body{
-    background-color: blueviolet;
-    color: aliceblue;
+    background-color: rgb(43, 116, 226);
+    color: rgb(255, 255, 255);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -17,8 +17,8 @@
 /*estilos para la tarjeta*/
 .card{
     width: 18rem;
-    background-color: rgb(80, 27, 105);
-    color: rgb(206, 104, 231);
+    background-color: rgb(27, 63, 105);
+    color: rgb(104, 163, 231);
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -40,13 +40,23 @@
 
 /*boton esterilizado (estilizado)*/
 .card .btn{
-    background-color: rgb(159, 56, 228);
-    color: rgb(70, 35, 99);
+    background-color: rgb(56, 145, 228);
+    color: rgb(35, 61, 99);
     border: none;
     transition: background 0.3s ease-in-out;
 }
 .card .btn:hover{
-    background-color: rgb(255, 251, 226);
+    background-color: rgb(255, 255, 255);
+}
+
+.deseados{
+    background-color: rgb(56, 145, 228);
+    color: rgb(35, 61, 99);
+    border: none;
+    transition: background 0.3s ease-in-out;
+}
+.deseados:hover{
+    background-color: rgb(255, 255, 255);
 }
 
 /*responsividad para pantallas chicas*/

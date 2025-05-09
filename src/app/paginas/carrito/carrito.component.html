@@ -7,31 +7,31 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Precio</th>
-            <th>Precio total</th>
-            <th>Cantidad</th>
-            <th>Acciones</th>
+            <th class="carrito-color-top">Imagen</th>
+            <th class="carrito-color-top">Nombre</th>
+            <th class="carrito-color-top">Descripcion</th>
+            <th class="carrito-color-top">Precio</th>
+            <th class="carrito-color-top">Precio total</th>
+            <th class="carrito-color-top">Cantidad</th>
+            <th class="carrito-color-top">Acciones</th>
         </tr>
     </thead>
 
     <tbody>
         <tr *ngFor="let item of productoEnCarrito; let i = index">
-            <td><img [src]="item.producto.imagen" alt="{{item.producto.nombre}}" style="width: 50px; height: 50px;"></td>
-            <td> {{item.producto.nombre}} </td>
-            <td> {{item.producto.descripcion}} </td>
-            <td> {{item.producto.precio | currency}} </td>
-            <td> {{item.producto.precio * item.cantidad}} </td>
-            <td>
+            <td class="carrito-color-{{i%2}}"><img [src]="item.producto.imagen" alt="{{item.producto.nombre}}" style="width: 50px; height: 50px;"></td>
+            <td class="carrito-color-{{i%2}}"> {{item.producto.nombre}} </td>
+            <td class="carrito-color-{{i%2}}"> {{item.producto.descripcion}} </td>
+            <td class="carrito-color-{{i%2}}"> {{item.producto.precio | currency}} </td>
+            <td class="carrito-color-{{i%2}}"> {{item.producto.precio * item.cantidad}} </td>
+            <td class="carrito-color-{{i%2}}">
                 <button (click)="quitarCantidad(i)">-</button>
                 {{item.cantidad}}
                 <button (click)="agregarCantidad(i)">+</button>
             </td>
 
-            <td>
-                <button (click)="eliminarProducto(item.producto.id)">eliminar</button>
+            <td class="carrito-color-{{i%2}}">
+                <button (click)="eliminarProducto(item.producto.id)">Eliminar</button>
             </td>
 
         </tr>
@@ -40,5 +40,5 @@
 
 
 <div *ngIf="productoEnCarrito.length > 0">
-    <button (click)="realizarCompra()" class="btn btn-succes">realizar compra</button>
+    <button (click)="realizarCompra()" class="btn btn-succes" class="boton-compra">Realizar compra</button>
 </div>

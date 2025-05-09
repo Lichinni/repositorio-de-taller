@@ -5,22 +5,24 @@
 }
 
 .navbar{
-    background-color: #5c2db4;
+    background-color: #1a83da;
     width: 100%;
 }
 
-.nav-item{
-    background-color: blueviolet;
-    border-radius: 5%;
-    transition: background 0.3s ease-in-out;
-
+#navbar-container{
     display: flex;
     justify-content: center; /*lo centra orizontalmente*/
     gap: 20px; /*espacio entre las tarjetas*/
     flex-wrap: wrap; /*permite que se acomoden en pantallas chicas (flexea y warpea)*/
+    padding: 20px;
+}
+
+.nav-item{
+    background-color: rgb(72, 151, 255);
+    border-radius: 10%;
+    transition: background 0.3s ease-in-out;
 }
 
 .nav-item:hover{
-    background-color: rgb(255, 251, 226);
-
+    background-color: rgb(255, 255, 255);
 }

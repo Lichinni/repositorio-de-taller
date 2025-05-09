@@ -36,7 +36,6 @@ export class CarritoComponent implements OnInit {
   };
 
 
-
   vaciarCarrito(){
     this.carritoService.vaciarCarrito()
   };
