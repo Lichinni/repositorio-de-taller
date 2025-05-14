@@ -15,17 +15,22 @@ export class DeseadosComponent {
 
   constructor (private CarritoService: CarritoService, private DeseadosService:DeseadosService){};
   
-  productosEnDeseados:{producto:Producto; cantidad:number}[] = [];
+  productosEnDeseados:{producto:Producto}[] = [];
 
-  Productos: Producto[]=[]
+  ngOnInit(): void {
+    this.DeseadosService.deseados$.subscribe((producto) => {
+      this.productosEnDeseados = producto
+    })
+  };
   
-  agregar(producto:Producto){
+  agregar(producto:Producto, productoId:number){
     this.CarritoService.agregarAlCarrito(producto)
     alert('producto en el carrito (◕‿◕)')
+    this.DeseadosService.eliminarDeDeseados(productoId)    
   };
   
   quitarDeseados(productoId:number){
     this.DeseadosService.eliminarDeDeseados(productoId)
-    alert('Guardado en su lista de deseados (◕‿◕)')
+    alert('Eliminado de su lista de deseados (◕‿◕)')
   };
 }

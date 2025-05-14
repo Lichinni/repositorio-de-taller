@@ -10,6 +10,7 @@ import { CarritoService } from '../../servicios/carrito.service';
   templateUrl: './carrito.component.html',
   styleUrl: './carrito.component.css'
 })
+
 export class CarritoComponent implements OnInit {
   productoEnCarrito:{producto:Producto; cantidad:number}[] = [];
 
@@ -44,5 +45,4 @@ export class CarritoComponent implements OnInit {
     alert("COMPRA REALIZADA YYIPIEE")
     this.vaciarCarrito
   };
-
 }
