@@ -10,10 +10,10 @@
             <div class ="card">
                 <img [src]="item.producto.imagen" alt="{{item.producto.nombre}}" class="product-image">
                 <h2>{{item.producto.nombre}}</h2>
-                <p>{{item.producto.descripcion}}</p>
-                <p>Precio: {{item.producto.precio}}</p>
-                <button type="button" class="btn btn-outline-primary" (click)="agregar(item.producto, item.producto.id)">Agregar al carrito</button>
-                <button type="button" class="btn btn-outline-primary" class="deseados" (click)="quitarDeseados(item.producto.id)">✘</button>
+                <p class="scroll-text">{{item.producto.descripcion}}</p>
+                <p>Precio: ${{item.producto.precio}}</p>
+                <button type="button" id="boton-card" class="btn btn-outline-primary" (click)="agregar(item.producto, item.producto.id)">Agregar al carrito</button>
+                <button type="button" id="fav-card" class="btn btn-outline-primary" class="deseados" (click)="quitarDeseados(item.producto.id)">✘</button>
             </div>
         </ng-container>
     </ng-container>

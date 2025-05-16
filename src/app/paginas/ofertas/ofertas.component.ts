@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Producto } from '../../modelos/producto.models';
 import { CarritoService } from '../../servicios/carrito.service';
+import { DeseadosService } from '../../servicios/deseados.service';
 
 @Component({
   selector: 'app-ofertas',
@@ -12,21 +13,26 @@ import { CarritoService } from '../../servicios/carrito.service';
 })
 export class OfertasComponent {
 
-  Producto: Producto[]=[
+  Productos: Producto[]=[
     {
-      id: 0,
-      nombre: 'Gatete chambeando',
-      precio:0.01,
-      descripcion:'Aún trabajando en la pagina.',
-      disponibilidad:true,
-      imagen:'https://thumbs.dreamstime.com/z/retrato-de-um-gato-do-construtor-com-as-ferramentas-nas-patas-na-parede-tijolo-fundo-139925202.jpg'
+    id: 2,
+    nombre: 'Gato mago',
+    precio:250,
+    descripcion:'Gato con acceso al conocimiento de los grimorios mas antiguos y arcanos.',
+    disponibilidad:true,
+    imagen:'https://s3.ifanr.com/wp-content/uploads/2024/10/cat4.jpg'
     }
   ]
+ 
+  constructor (private CarritoService: CarritoService, private DeseadosService:DeseadosService){};
     
-  constructor (private CarritoService: CarritoService){}
     
   agregar(producto:Producto){
     this.CarritoService.agregarAlCarrito(producto)
-    alert('producto en el carrito :D')
+    alert('Producto en el carrito (◕‿◕)')
   };
+
+  agregarDeseados(producto:Producto){
+    this.DeseadosService.agregarEnDeseados(producto)
+  }
 }

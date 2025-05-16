@@ -17,6 +17,7 @@
 /*estilos para la tarjeta*/
 .card{
     width: 18rem;
+    height: 450px;
     background-color: rgb(27, 63, 105);
     color: rgb(104, 163, 231);
     border-radius: 10px;
@@ -27,7 +28,6 @@
 
 /*efecto cuando paso por encima de la tarjeta*/
 .card :hover{
-    transform: scale(1.05);
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2)
 }
 
@@ -37,6 +37,11 @@
     height: 60%;
     object-fit: cover;
 }
+
+.card img:hover{
+    transform: scale(1.05);
+}
+
 
 /*boton esterilizado (estilizado)*/
 .card .btn{
@@ -65,4 +70,56 @@
         flex-direction: column; /*cambia a columna*/
         align-items: center; /*centra en pantallas chicas*/
     }
+}
+
+
+#boton-card{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#boton-card:hover{
+    scale: 1.05;
+    transition: 0.3s ease-in-out;
+}
+
+#fav-card{
+    position: absolute;
+    bottom: 1;
+    width: 15%;
+    height: 10%;
+    border-radius: 100%;
+    scale: 1.3;
+    padding: 10px;
+    background-color: rgba(26, 67, 105, 0.5);
+    color: rgb(255, 255, 255);
+}
+
+#fav-card:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(35, 61, 99);
+    scale: 1.5;
+    transition: 0.3s ease-in-out;
+}
+
+
+#info-card{
+    width: 15%;
+    height: 10%;
+    border-radius: 100%;
+    scale: 1.3;
+    background-color: rgba(26, 67, 105, 0.5);
+    color: rgb(255, 255, 255);
+}
+
+#info-card:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(35, 61, 99);
+    scale: 1.5;
+    transition:  0.3s ease-in-out;
+}
+
+.scroll-text{
+    overflow: auto;
 }

@@ -14,8 +14,11 @@ export class DeseadosService {
     const deseados = this.deseadosSubject.getValue();
     const encontrado = deseados.find(p => p.producto.id === producto.id);
 
-    if(! encontrado){
+    if(encontrado){
+      alert("El producto ya está em su lista de deseados.")
+    }else{
       this.deseadosSubject.next([...deseados,{producto}])
+      alert('Guardado en su lista de deseados (◕‿◕)')
     }
   }
 

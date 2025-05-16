@@ -45,9 +45,18 @@ export class ProductosComponent {
       id: 4,
       nombre: 'Gato alien',
       precio:666,
-      descripcion:'Gato alien.',
       disponibilidad:true,
+      descripcion:'Gato alien',
       imagen:'https://th.bing.com/th/id/R.3f599f21902e6e62bcf16e95584d73d9?rik=CgE7jGWuMAzXWw&riu=http%3a%2f%2fimages3.memedroid.com%2fimages%2fUPLOADED847%2f647a974b01cfb.jpeg&ehk=lIrLxhASvYJvZMovsIFgFJJC7QC%2fHgAtiHDekItEXYI%3d&risl=&pid=ImgRaw&r=0'
+    },
+
+    {
+      id: 5,
+      nombre: 'Gato iracundo',
+      precio:50,
+      descripcion:'En el instante en que el destello de la cámara ilumina la habitación, el gato, que hasta ese momento se encontraba en una postura relajada, se transforma. Su cuerpo, antes flexible y ágil, se tensa como una cuerda a punto de romperse. La cola, erizada y rígida, se agita con furia contenida, mientras sus orejas se aplastan contra su cabeza en una clara señal de irritación. Los ojos, normalmente tranquilos, se abren desmesuradamente, revelando pupilas dilatadas que reflejan una mezcla de sorpresa y desdén. El felino emite un bufido bajo, casi imperceptible, pero cargado de amenaza. Es su manera de advertir que no está dispuesto a tolerar la invasión de su espacio personal. Su postura se vuelve defensiva; el cuerpo se arquea ligeramente, las patas se flexionan, preparándose para un posible salto o huida. Cada músculo está en alerta máxima, listo para reaccionar ante cualquier movimiento. La atmósfera se carga de tensión. El gato, con su mirada fija en el objetivo, parece desafiar al fotógrafo, como si dijera: "¿Acaso no sabes que soy el dueño de este lugar?" Cada clic de la cámara es percibido como una provocación, una intrusión en su mundo. La incomodidad se convierte en enojo, y el enojo en una furia contenida que solo espera el momento adecuado para estallar. Es en este preciso instante cuando el gato decide actuar. Con un movimiento rápido y preciso, se aleja del foco de atención, buscando refugio en un lugar donde la luz no lo alcance, donde su privacidad no sea vulnerada. Su mensaje es claro: No me subestimes. Soy más que una imagen; soy un ser con voluntad propia.',
+      disponibilidad:true,
+      imagen:'https://i.pinimg.com/originals/b6/be/1f/b6be1f7dde9692dd57419a5ea89a9faa.jpg'
     }
   ]
 
@@ -61,6 +70,5 @@ export class ProductosComponent {
 
   agregarDeseados(producto:Producto){
     this.DeseadosService.agregarEnDeseados(producto)
-    alert('Guardado en su lista de deseados (◕‿◕)')
   }
 }

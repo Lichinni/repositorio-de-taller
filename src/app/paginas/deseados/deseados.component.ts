@@ -25,7 +25,7 @@ export class DeseadosComponent {
   
   agregar(producto:Producto, productoId:number){
     this.CarritoService.agregarAlCarrito(producto)
-    alert('producto en el carrito (◕‿◕)')
+    alert('Producto en el carrito (◕‿◕)')
     this.DeseadosService.eliminarDeDeseados(productoId)    
   };
   
