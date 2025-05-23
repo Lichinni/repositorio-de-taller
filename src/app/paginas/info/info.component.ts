@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-info',
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './info.component.html',
   styleUrl: './info.component.css'
 })

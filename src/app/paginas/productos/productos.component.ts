@@ -4,6 +4,7 @@ import { CarritoService } from '../../servicios/carrito.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DeseadosService } from '../../servicios/deseados.service';
+import { InfoService } from '../../servicios/info.service';
 
 @Component({
   selector: 'app-productos',
@@ -13,6 +14,9 @@ import { DeseadosService } from '../../servicios/deseados.service';
 })
 export class ProductosComponent {
 
+  constructor (private CarritoService: CarritoService, private DeseadosService:DeseadosService, private InfoService: InfoService){};
+
+  
   Productos: Producto[]=[
     {
       id: 1,
@@ -54,14 +58,47 @@ export class ProductosComponent {
       id: 5,
       nombre: 'Gato iracundo',
       precio:50,
-      descripcion:'En el instante en que el destello de la cámara ilumina la habitación, el gato, que hasta ese momento se encontraba en una postura relajada, se transforma. Su cuerpo, antes flexible y ágil, se tensa como una cuerda a punto de romperse. La cola, erizada y rígida, se agita con furia contenida, mientras sus orejas se aplastan contra su cabeza en una clara señal de irritación. Los ojos, normalmente tranquilos, se abren desmesuradamente, revelando pupilas dilatadas que reflejan una mezcla de sorpresa y desdén. El felino emite un bufido bajo, casi imperceptible, pero cargado de amenaza. Es su manera de advertir que no está dispuesto a tolerar la invasión de su espacio personal. Su postura se vuelve defensiva; el cuerpo se arquea ligeramente, las patas se flexionan, preparándose para un posible salto o huida. Cada músculo está en alerta máxima, listo para reaccionar ante cualquier movimiento. La atmósfera se carga de tensión. El gato, con su mirada fija en el objetivo, parece desafiar al fotógrafo, como si dijera: "¿Acaso no sabes que soy el dueño de este lugar?" Cada clic de la cámara es percibido como una provocación, una intrusión en su mundo. La incomodidad se convierte en enojo, y el enojo en una furia contenida que solo espera el momento adecuado para estallar. Es en este preciso instante cuando el gato decide actuar. Con un movimiento rápido y preciso, se aleja del foco de atención, buscando refugio en un lugar donde la luz no lo alcance, donde su privacidad no sea vulnerada. Su mensaje es claro: No me subestimes. Soy más que una imagen; soy un ser con voluntad propia.',
+      descripcion:'ta nojao',
       disponibilidad:true,
       imagen:'https://i.pinimg.com/originals/b6/be/1f/b6be1f7dde9692dd57419a5ea89a9faa.jpg'
-    }
+    },
+
+    {
+      id: 6,
+      nombre: 'Gato expandido',
+      precio:750,
+      descripcion:'Parece mas una alfombra que un gato',
+      disponibilidad:true,
+      imagen:'https://steamuserimages-a.akamaihd.net/ugc/1683744853793346621/DE2EA2E616967103C2406687CCF3D98E1F234CA8/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false'
+    },
+
+    {
+      id: 7,
+      nombre: 'Gato tipico',
+      precio:11,
+      descripcion:'Me mintieron la imagen no era un .png',
+      disponibilidad:true,
+      imagen:'https://w7.pngwing.com/pngs/614/838/png-transparent-cat-kitty-creative-cat-cat.png'
+    },
+
+    {
+      id: 8,
+      nombre: 'Gato',
+      precio:750,
+      descripcion:'',
+      disponibilidad:true,
+      imagen:''
+    },
+
+    {
+      id: 9,
+      nombre: 'Gato',
+      precio:750,
+      descripcion:'',
+      disponibilidad:true,
+      imagen:''
+    },
   ]
-
-  constructor (private CarritoService: CarritoService, private DeseadosService:DeseadosService){};
-
 
   agregar(producto:Producto){
     this.CarritoService.agregarAlCarrito(producto)
@@ -70,5 +107,9 @@ export class ProductosComponent {
 
   agregarDeseados(producto:Producto){
     this.DeseadosService.agregarEnDeseados(producto)
+  }
+
+  info(producto:Producto){
+    this.InfoService.mostrarInfo(producto)
   }
 }

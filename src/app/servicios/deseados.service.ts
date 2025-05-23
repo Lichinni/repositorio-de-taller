@@ -5,6 +5,7 @@ import { Producto } from '../modelos/producto.models';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DeseadosService {
 
   private deseadosSubject = new BehaviorSubject <{ producto: Producto }[]>([]);
@@ -15,7 +16,7 @@ export class DeseadosService {
     const encontrado = deseados.find(p => p.producto.id === producto.id);
 
     if(encontrado){
-      alert("El producto ya está em su lista de deseados.")
+      alert("El producto ya está en su lista de deseados.")
     }else{
       this.deseadosSubject.next([...deseados,{producto}])
       alert('Guardado en su lista de deseados (◕‿◕)')
@@ -26,7 +27,6 @@ export class DeseadosService {
     const productos = this.deseadosSubject.getValue().filter(p => p.producto.id !== productoId)
     this.deseadosSubject.next(productos)
   }
-
 
   constructor() { }
 }
