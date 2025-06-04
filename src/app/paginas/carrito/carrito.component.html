@@ -1,10 +1,12 @@
-<h1>Carrito de Compras:</h1><br>
+<h1 class="text-center my-t">Carrito de Compras:</h1>
 
-<div *ngIf="productoEnCarrito.length === 0">
+<div *ngIf="productoEnCarrito.length === 0" class="alert alert-warning text-center">
     <p>No hay productos en el carrito :P</p>
 </div>
 
-<table class="table">
+<div *ngIf="productoEnCarrito.length > 0" class="container">
+
+<table class="table table-hover table-bordered aling-middle text-center">
     <thead>
         <tr>
             <th class="carrito-color-top">Imagen</th>
@@ -19,19 +21,23 @@
 
     <tbody>
         <tr *ngFor="let item of productoEnCarrito; let i = index">
-            <td class="carrito-color-{{i%2}}"><img [src]="item.producto.imagen" alt="{{item.producto.nombre}}" style="width: 50px; height: 50px;"></td>
+            <td class="carrito-color-{{i%2}}" class="fw-hold"><img [src]="item.producto.imagen" alt="{{item.producto.nombre}}" style="width: 50px; height: 50px;" class="img-thumbnail"></td>
             <td class="carrito-color-{{i%2}}"> {{item.producto.nombre}} </td>
             <td class="carrito-color-{{i%2}}"> {{item.producto.descripcion}} </td>
             <td class="carrito-color-{{i%2}}"> {{item.producto.precio | currency}} </td>
             <td class="carrito-color-{{i%2}}"> {{item.producto.precio * item.cantidad}} </td>
             <td class="carrito-color-{{i%2}}">
-                <button (click)="quitarCantidad(i)">-</button>
+                <div class="btn-group" role="group" aria-label="Cantidad">
+                <button class="btn btn-outline-danger btn-sm" (click)="quitarCantidad(i)">-</button>
                 {{item.cantidad}}
-                <button (click)="agregarCantidad(i)">+</button>
+                <button class="btn btn-outline-success btn-sm" (click)="agregarCantidad(i)">+</button>
+                </div>
             </td>
 
             <td class="carrito-color-{{i%2}}">
-                <button (click)="eliminarProducto(item.producto.id)">Eliminar</button>
+                <button class="btn btn-outline-danger btn-sm" (click)="eliminarProducto(item.producto.id)">
+                <i class="bi bi-trash"></i>Eliminar
+                </button>
             </td>
 
         </tr>
@@ -39,6 +45,9 @@
 </table>
 
 
-<div *ngIf="productoEnCarrito.length > 0">
-    <button (click)="realizarCompra()" class="btn btn-succes" class="boton-compra">Realizar compra</button>
+<div *ngIf="productoEnCarrito.length > 0" class="text-end mt-4">
+    <h4 class="fw-bold">Total: {{calcularTotal()}}</h4>
+    <button class="btn btn-primary mt-2" (click)="irAFormularioCompra()">Realizar Compra</button>
+</div>
+
 </div>
