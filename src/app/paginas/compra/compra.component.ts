@@ -2,8 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DomSanitizer,SafeResourceUrl } from '@angular/platform-browser';
-import { privateDecrypt } from 'crypto';
-import jspdf, { jsPDF } from 'jspdf'
+import { jsPDF } from 'jspdf'
 import { CarritoService } from '../../servicios/carrito.service';
 
 @Component({
@@ -107,7 +106,7 @@ export class CompraComponent implements OnInit {
     dot.text("Factura de compra", 14,20)
 
     dot.setFontSize(12)
-    dot.text(`Fecha: ${this.factura.fecha.total.toLocaleString}`,14,30)
+    dot.text(`Fecha: ${this.factura.fecha.toLocaleString()}`,14,30)
 
     //informacion del cliente.
     dot.text(`Cliente:`,14,40)
@@ -131,25 +130,25 @@ export class CompraComponent implements OnInit {
       )
     })
 
-      //Costos finales.
-      y += 10;
-      dot.text(`Costo de envio: ${this.factura.envio.toFixed(2)}`,14,y);
-      y += 10;
-      dot.text(`Total a pagar: ${this.factura.total.toFixed(2)}`,14,y);
+    //Costos finales.
+    y += 10;
+    dot.text(`Costo de envio: ${this.factura.envio.toFixed(2)}`,14,y);
+    y += 10;
+    dot.text(`Total a pagar: $${this.factura.total.toFixed(2)}`,14,y);
 
-      //Convierte el pdf y genera una URL segura para angular.}
-      const pdfBlob = dot.output('blob');
-      this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(pdfBlob))
+    //Convierte el pdf y genera una URL segura para angular.
+    const pdfBlob = dot.output('blob');
+    this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(pdfBlob))
 
-      //Abre el modal que contiene el pdf.
-      this.mostrarModal = true;
+    //Abre el modal que contiene el pdf.
+    this.mostrarModal = true;
   }
 
-  //metodo para cerrar el modal y liberar la url para
+  //Metodo para cerrar el modal y liberar la url para.
   cerrarModal():void{
     this.mostrarModal = false;
     if(this.pdfSrc){
-      //se renueva la url para liberar recursos.
+      //Se renueva la url para liberar recursos.
       URL.revokeObjectURL((this.pdfSrc as any).changinThisBreakApplicationSecurity);
       this.pdfSrc = undefined;
     }
@@ -157,14 +156,15 @@ export class CompraComponent implements OnInit {
 //Metodo para imprimir el pdf que ersta cargado dentro deliframe visto.
 imprimirPDF():void{
   //Obtener la referencia al elemento del iframe del pdf modificado del id 'pdfIframe'.
-  //
-  const iframe:HTMLIFrameElement | null = document.getElementById('pdfframe') as HTMLIFrameElement
+  const iframe:HTMLIFrameElement | null = document.getElementById('pdfIframe') as HTMLIFrameElement
 
   //Verifica que el Iframe exista y tenga un objeto contenWindow valido.
   if(iframe && iframe.contentWindow){
-    iframe.contentWindow.focus()
+    //Le da foco al iframe para asegurarse que la ventana correcta esta activa para imprimir.
+    iframe.contentWindow.focus();
     
-    iframe.contentWindow.print()
+    //Llama al metodo print() de la ventana del iframe para abrir la ventana de impresion del navegador.
+    iframe.contentWindow.print();
   }
 }
 

@@ -3,6 +3,7 @@ import { Producto } from '../../modelos/producto.models';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CarritoService } from '../../servicios/carrito.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrito',
@@ -14,7 +15,7 @@ import { CarritoService } from '../../servicios/carrito.service';
 export class CarritoComponent implements OnInit {
   productoEnCarrito:{producto:Producto; cantidad:number}[] = [];
 
-  constructor (private carritoService: CarritoService){}
+  constructor (private carritoService: CarritoService, private router:Router){}
 
   ngOnInit(): void {
     this.carritoService.carrito$.subscribe((productos) => {
@@ -41,8 +42,22 @@ export class CarritoComponent implements OnInit {
     this.carritoService.eliminarTodoElCarrito()
   };
 
+  /*
   realizarCompra(){
     alert("COMPRA REALIZADA YYIPIEE")
-    this.vaciarCarrito
+    this.vaciarCarrito()
   };
+  */
+
+  irAformularioCompra(){
+    //redirige añ usuario a la ruta '/compra', donde se encuentra el formulariopara
+    this.router.navigate(['/compra'])
+  }
+
+  calcularTotal(): number{
+    //Recorre el arreglo de productos en el carrito y suma el resultado de (precio * cantidad)
+    return this.productoEnCarrito.reduce((total,item) => {
+      return total+item.producto.precio * item.cantidad
+    },0) //el acumulador total comienza en 0.
+  }
 }
