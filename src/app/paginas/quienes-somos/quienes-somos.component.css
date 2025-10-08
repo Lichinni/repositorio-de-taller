@@ -1,0 +1,27 @@
+.nosotros{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.texto{
+    color: rgb(255, 204, 251);
+    text-shadow: 1px 1px 2px rgb(224, 164, 224);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gatogiff{
+    animation: gatogiff 5s ease-in-out infinite;
+}
+
+@keyframes gatogiff {
+    0% {
+        transform: translateX(50px);
+    }
+    50% {
+        transform: translateX(1000px);
+    }
+    100% {
+        transform: translateX(50px);
+    }
+}

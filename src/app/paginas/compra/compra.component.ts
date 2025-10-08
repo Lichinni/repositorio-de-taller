@@ -138,7 +138,7 @@ export class CompraComponent implements OnInit {
 
     //Convierte el pdf y genera una URL segura para angular.
     const pdfBlob = dot.output('blob');
-    this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(pdfBlob))
+    this.pdfSrc = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(pdfBlob))
 
     //Abre el modal que contiene el pdf.
     this.mostrarModal = true;
@@ -153,19 +153,18 @@ export class CompraComponent implements OnInit {
       this.pdfSrc = undefined;
     }
   }
-//Metodo para imprimir el pdf que ersta cargado dentro deliframe visto.
-imprimirPDF():void{
-  //Obtener la referencia al elemento del iframe del pdf modificado del id 'pdfIframe'.
-  const iframe:HTMLIFrameElement | null = document.getElementById('pdfIframe') as HTMLIFrameElement
+  //Metodo para imprimir el pdf que ersta cargado dentro deliframe visto.
+  imprimirPDF():void{
+    //Obtener la referencia al elemento del iframe del pdf modificado del id 'pdfIframe'.
+    const iframe:HTMLIFrameElement | null = document.getElementById('pdfIframe') as HTMLIFrameElement
 
-  //Verifica que el Iframe exista y tenga un objeto contenWindow valido.
-  if(iframe && iframe.contentWindow){
-    //Le da foco al iframe para asegurarse que la ventana correcta esta activa para imprimir.
-    iframe.contentWindow.focus();
-    
-    //Llama al metodo print() de la ventana del iframe para abrir la ventana de impresion del navegador.
-    iframe.contentWindow.print();
+    //Verifica que el Iframe exista y tenga un objeto contenWindow valido.
+    if(iframe && iframe.contentWindow){
+      //Le da foco al iframe para asegurarse que la ventana correcta esta activa para imprimir.
+      iframe.contentWindow.focus();
+      
+      //Llama al metodo print() de la ventana del iframe para abrir la ventana de impresion del navegador.
+      iframe.contentWindow.print();
+    }
   }
-}
-
 }

@@ -28,7 +28,7 @@
             <td class="carrito-color-{{i%2}}"> {{item.producto.precio * item.cantidad}} </td>
             <td class="carrito-color-{{i%2}}">
                 <div class="btn-group" role="group" aria-label="Cantidad">
-                    <button class="btn btn-sm" (click)="quitarCantidad(i)">-</button>
+                    <button class="btn btn-sm boton" (click)="quitarCantidad(i)">-</button>
                     {{item.cantidad}}
                     <button class="btn btn-sm boton" (click)="agregarCantidad(i)">+</button>
                 </div>
@@ -46,7 +46,7 @@
 
 
 <div *ngIf="productoEnCarrito.length > 0" class="text-end mt-4">
-    <h4 class="fw-bold">Total: {{calcularTotal()}}</h4>
+    <h4 class="fw-bold total">Total: {{calcularTotal()}}</h4>
     <button class="btn btn-primary mt-2" (click)="irAformularioCompra()">Realizar Compra</button>
 </div>
 

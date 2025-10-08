@@ -1,4 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-image: url(https://tse2.mm.bing.net/th/id/OIP.WYhEV2q3pgc1m-ScbNQeZQHaEv?r=0&rs=1&pid=ImgDetMain&o=7&rm=3);
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    animation: zoomFondo 20s ease-in-out infinite;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(6px);
+    z-index: -1;
+}
+
+@keyframes zoomFondo {
+  0%, 100% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 105%;
+  }
+}
