@@ -12,3 +12,13 @@ html, body {
 .content {
   flex: 1;
 }
+
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* hace que el contenido principal ocupe todo el espacio disponible */
+}

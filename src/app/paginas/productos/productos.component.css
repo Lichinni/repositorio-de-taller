@@ -1,7 +1,7 @@
 /*estilos generales*/
 .body{
-    background-color: rgb(104, 67, 18);
-    color: rgb(255, 255, 255);
+    background: linear-gradient(to left, #ff66f7, #ac44a6);
+    color: #fff;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -18,8 +18,8 @@
 .card{
     width: 18rem;
     height: 450px;
-    background-color: rgb(105, 57, 17);
-    color: rgb(37, 22, 8);
+    background: linear-gradient(to left, #e25adb, #ac44a6);
+    color: #fff;
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -27,9 +27,7 @@
 }
 
 /*efecto cuando paso por encima de la tarjeta*/
-.card :hover{
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2)
-}
+
 
 /*la imagen deentro de la tarjeta*/
 .card img{
@@ -46,23 +44,22 @@
 
 /*boton esterilizado (estilizado)*/
 .card .btn{
-    background-color: rgb(156, 94, 0);
-    color: rgb(56, 37, 8);
+    background: linear-gradient(to left, #ff9afa, #d680d2);
+    color: #7a2576;
     border: none;
-    transition: background 0.3s ease-in-out;
 }
 .card .btn:hover{
-    background-color: rgb(255, 255, 255);
+    background: #fff;
 }
 
 .extra{
-    background-color: rgb(158, 101, 27);
-    color: rgb(80, 60, 23);
+    background-color: #ffa8f881;
+    color: #fff;
     border: none;
     transition: background 0.3s ease-in-out;
 }
 .extra:hover{
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
 }
 
 /*responsividad para pantallas chicas*/
@@ -93,12 +90,12 @@
     border-radius: 100%;
     scale: 1.3;
     padding: 10px;
-    background-color: rgba(83, 79, 21, 0.5);
+    background-color: rgba(255, 134, 235, 0.466);
     color: rgb(255, 255, 255);
 }
 
 #fav-card:hover{
-    background-color: rgba(95, 57, 0, 0.671);
+    background-color: rgb(229, 126, 255);
     color: rgb(255, 255, 255);
     scale: 1.5;
     transition: 0.3s ease-in-out;

@@ -1,6 +1,7 @@
-footer{
+footer {
     width: 100%;
-
-    background-color: rgb(94, 161, 201);
-    color: rgb(45, 118, 182);
+    background: linear-gradient(to left, #ff66f7, #ac44a6);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
 }
