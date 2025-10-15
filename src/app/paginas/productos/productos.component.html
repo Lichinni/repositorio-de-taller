@@ -2,7 +2,7 @@
 
 
 <div class="filtros">
-  <div class="row mb-3">
+  <div class="row mb-3 campo">
     <div class="col mb-3">
       <label>Categoría:</label>
       <select class="form-select" [(ngModel)]="selectedCategory" name="categoria">
@@ -12,70 +12,49 @@
     </div>
   </div>
 
-  <div class="col md-3">
+  <div class="col md-3 campo">
     <label>Marca:</label>
     <select class="form-select" [(ngModel)]="selectedBrand" name="marca">
-      <option>Todas</option>
+      <option value="">Todas</option>
       <option *ngFor="let marca of marca" [value]="marca">{{marca}}</option>
     </select>
   </div>
 
-  <div class="col md-2">
+  <div class="col md-2 campo">
     <label>Precio min.</label>
     <input type="number" class="form-control" [(ngModel)]="minPrecio" name="minPrecio">
   </div>
 
-  <div class="col md-2">
+  <div class="col md-2 campo">
     <label>Precio max.</label>
     <input type="number" class="form-control" [(ngModel)]="maxPrecio" name="maxPrecio">
   </div>
 
-  <div class="col md-2 d-flex aling-item-end">
+  <div class="col md-2 d-flex aling-item-end campo">
     <button class="btn btn-secondary w-100" (click)="resetFilters()">
-      <div class="button-top"></div>
+      <div class="button-top">Resetear filtros</div>
     </button>
   </div>
-
-  <div class="card-container">
-    <ng-container *ngIf="filteredProducts && filteredProducts.length">
-      <ng-container *ngFor="let producto of filteredProducts">
-        <div class="card" *ngIf="producto.disponibilidad">
-          <img [src]="producto.imagen" alt="producto.nombre" class="product-img">
-          <h2>{{producto.nombre}}</h2>
-          <p>{{producto.descripcion}}</p>
-          <p>Precio: {{producto.precio}}</p>
-          <p>Cantidad: {{producto.cantidad}}</p>
-          <p>Marca: {{producto.marca}}</p>
-
-          <button class="btn btn-outline-primary" (click)="agregar(producto)"></button>
-          <button class="btn btn-outline-primary" (click)="agregarDeseados(producto)"></button>
-        </div>
-      </ng-container>
-    </ng-container>
-  </div>
-
-  <div *ngIf="filteredProducts.length === 0" class="text-muted">
-    No se encontraron productos que coincidan con los filtros.
-  </div>
-
 </div>
 
-
-
 <div class="card-container">
-    <ng-container *ngIf="Productos && Productos.length">
-        <ng-container *ngFor ="let producto of Productos">
-            <div *ngIf ="producto.disponibilidad" class ="card">
-                <img [src]="producto.imagen" alt="{{producto.nombre}}" class="product-image">
-                <h2>{{producto.nombre}}</h2>
-                <p>{{producto.descripcion}}</p>
-                <p>Precio: {{producto.precio | currency}}</p>
-                <button type="button" id="boton-card" class="btn btn-outline-primary" (click)="agregar(producto)">Agregar al carrito</button>
-                <button type="button" id="fav-card" class="btn btn-outline-primary" class="extra" (click)="agregarDeseados(producto)">★</button>
-                <!--
-                <button type="button" id="info-card" class="btn btn-outline-primary" class="extra" (click)="info(producto)" routerLink="/info">🛈</button>
-                -->
-            </div>
-        </ng-container>
+  <ng-container *ngIf="filteredProducts && filteredProducts.length">
+    <ng-container *ngFor="let producto of filteredProducts">
+      <div class="card" *ngIf="producto.disponibilidad">
+        <img [src]="producto.imagen" alt="producto.nombre" class="product-img">
+        <h2>{{producto.nombre}}</h2>
+        <p>{{producto.descripcion}}</p>
+        <p>Precio: {{producto.precio}}</p>
+        <p>Cantidad: {{producto.cantidad}}</p>
+        <p>Marca: {{producto.marca}}</p>
+
+        <button type="button" id="boton-card" class="btn btn-outline-primary" (click)="agregar(producto)">Agregar al carrito</button>
+        <button type="button" id="fav-card" class="btn btn-outline-primary extra" (click)="agregarDeseados(producto)">★</button>
+      </div>
     </ng-container>
+  </ng-container>
+</div>
+
+<div *ngIf="filteredProducts.length === 0" class="text-muted">
+  No se encontraron productos que coincidan con los filtros.
 </div>

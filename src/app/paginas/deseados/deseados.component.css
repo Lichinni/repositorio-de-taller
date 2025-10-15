@@ -18,8 +18,8 @@
 .card{
     width: 18rem;
     height: 450px;
-    background-color: rgb(27, 63, 105);
-    color: rgb(104, 163, 231);
+    background: linear-gradient(to left, #e25adb, #ac44a6);
+    color: #fff;
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -45,8 +45,8 @@
 
 /*boton esterilizado (estilizado)*/
 .card .btn{
-    background-color: rgb(56, 145, 228);
-    color: rgb(35, 61, 99);
+    background: linear-gradient(to left, #ff9afa, #d680d2);
+    color: #7a2576;
     border: none;
     transition: background 0.3s ease-in-out;
 }
@@ -55,7 +55,7 @@
 }
 
 .deseados{
-    background-color: rgb(56, 145, 228);
+    background: linear-gradient(to left, #ff9afa, #d680d2);
     color: rgb(35, 61, 99);
     border: none;
     transition: background 0.3s ease-in-out;
@@ -101,23 +101,6 @@
     color: rgb(35, 61, 99);
     scale: 1.5;
     transition: 0.3s ease-in-out;
-}
-
-
-#info-card{
-    width: 15%;
-    height: 10%;
-    border-radius: 100%;
-    scale: 1.3;
-    background-color: rgba(26, 67, 105, 0.5);
-    color: rgb(255, 255, 255);
-}
-
-#info-card:hover{
-    background-color: rgb(255, 255, 255);
-    color: rgb(35, 61, 99);
-    scale: 1.5;
-    transition:  0.3s ease-in-out;
 }
 
 .scroll-text{

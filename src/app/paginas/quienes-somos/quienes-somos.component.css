@@ -16,12 +16,14 @@
 
 @keyframes gatogiff {
     0% {
-        transform: translateX(50px);
+        transform: translateX(50px) rotate(-45deg);
     }
     50% {
-        transform: translateX(1000px);
+        transform: translateX(1000px) rotate(45deg);
+
     }
     100% {
-        transform: translateX(50px);
+        transform: translateX(50px) rotate(-45deg);
+
     }
 }

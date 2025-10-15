@@ -1,38 +1,39 @@
 .carrito-color-top{
-    background-color: rgb(0, 105, 241);
+    background-color: #b13dff;
 }
 
 .carrito-color-1{
-    background-color: rgb(56, 142, 255);
+    background-color: #b13dff;
 }
 
 .carrito-color-0{
-    background-color: rgb(129, 184, 255);
+    background-color: #b13dff;
 }
 
 .boton-compra{
-    background-color: rgb(33, 129, 255);
+    background-color: #b13dff;
     border-radius: 5%;
     transition: background 0.3s ease-in-out;
 }
 
 .boton-compra:hover{
-    background-color: rgb(255, 255, 255);
+    background-color: #ffffff;
 }
 
 .boton{
-    background-color: rgba(0, 102, 255, 0);
-    color: rgb(255, 255, 255);
+    background-color: #b13dff;
+    color: #ffffff;
+    gap: 10px;
 }
 
 .boton:hover{
-    background-color: rgb(0, 102, 255);
-    color: white;
+    background-color: #b13dff;
+    color: rgb(255, 255, 255)ff;
 }
 
 .total{
-    color: white;
-    text-shadow: 0px 1px 3px rgb(56, 142, 255);
+    color: #ffffff;
+    text-shadow: 0px 1px 3px #b13dff;
 }
 
 

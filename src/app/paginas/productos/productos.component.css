@@ -1,6 +1,6 @@
 /*estilos generales*/
 .body{
-    background: linear-gradient(to left, #ff66f7, #ac44a6);
+    background: linear-gradient(to left, #b13dff, #b13dff);
     color: #fff;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -18,7 +18,7 @@
 .card{
     width: 18rem;
     height: 450px;
-    background: linear-gradient(to left, #e25adb, #ac44a6);
+    background: linear-gradient(to left, #a21bfc, #c772ff);
     color: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -44,7 +44,7 @@
 
 /*boton esterilizado (estilizado)*/
 .card .btn{
-    background: linear-gradient(to left, #ff9afa, #d680d2);
+    background: linear-gradient(to left, #d391ff, #e8c7ff);
     color: #7a2576;
     border: none;
 }
@@ -101,32 +101,18 @@
     transition: 0.3s ease-in-out;
 }
 
-
-#info-card{
-    width: 15%;
-    height: 10%;
-    border-radius: 100%;
-    scale: 1.3;
-    background-color: rgba(26, 67, 105, 0.5);
-    color: rgb(255, 255, 255);
-}
-
-#info-card:hover{
-    background-color: rgb(255, 255, 255);
-    color: rgb(35, 61, 99);
-    scale: 1.5;
-    transition:  0.3s ease-in-out;
-}
-
 .scroll-text{
     overflow: auto;
 }
 
-
 .filtros{
-    width: 60%;
-    height: 300px;
-    background-color: rgba(184, 184, 184, 0.5);
+    display: flex;
+    width: 100%;
+    background-color: rgba(255, 194, 255, 0.5);
     padding: 1%;
     border-radius: 2%;
+}
+
+.campos{
+    padding: 10px;
 }
