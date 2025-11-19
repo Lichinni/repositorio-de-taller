@@ -1,6 +1,6 @@
 /*estilos generales*/
 .body{
-    background: linear-gradient(to left, #b13dff, #b13dff);
+    background: linear-gradient(to left, #dba9fd, #f2dfff);
     color: #fff;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -18,7 +18,7 @@
 .card{
     width: 18rem;
     height: 450px;
-    background: linear-gradient(to left, #a21bfc, #c772ff);
+    background: linear-gradient(to left, #d596ff, #d693ff);
     color: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -44,8 +44,8 @@
 
 /*boton esterilizado (estilizado)*/
 .card .btn{
-    background: linear-gradient(to left, #d391ff, #e8c7ff);
-    color: #7a2576;
+    background: linear-gradient(to left, #ecd1ff, #ffffff);
+    color: #91648e;
     border: none;
 }
 .card .btn:hover{
@@ -53,7 +53,7 @@
 }
 
 .extra{
-    background-color: #ffa8f881;
+    background-color: #ffe3fd81;
     color: #fff;
     border: none;
     transition: background 0.3s ease-in-out;
@@ -90,12 +90,12 @@
     border-radius: 100%;
     scale: 1.3;
     padding: 10px;
-    background-color: rgba(255, 134, 235, 0.466);
+    background-color: rgba(255, 203, 246, 0.466);
     color: rgb(255, 255, 255);
 }
 
 #fav-card:hover{
-    background-color: rgb(229, 126, 255);
+    background-color: rgb(246, 208, 255);
     color: rgb(255, 255, 255);
     scale: 1.5;
     transition: 0.3s ease-in-out;
@@ -108,7 +108,7 @@
 .filtros{
     display: flex;
     width: 100%;
-    background-color: rgba(255, 194, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 1%;
     border-radius: 2%;
 }

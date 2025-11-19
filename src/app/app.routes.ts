@@ -8,6 +8,7 @@ import { ProductosComponent } from './paginas/productos/productos.component';
 import { DeseadosComponent } from './paginas/deseados/deseados.component';
 import { InfoComponent } from './paginas/info/info.component';
 import { CompraComponent } from './paginas/compra/compra.component';
+import { LoginComponent } from './auth/login/login.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'/inicio', pathMatch:'full'},
@@ -20,5 +21,6 @@ export const routes: Routes = [
     {path:'carrito',component:CarritoComponent},
     {path:'deseados',component:DeseadosComponent},
     {path:'info',component:InfoComponent},
-    {path:'compra',component:CompraComponent}
+    {path:'compra',component:CompraComponent},
+    {path:'login',component:LoginComponent}
 ];
