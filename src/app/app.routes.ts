@@ -9,6 +9,7 @@ import { DeseadosComponent } from './paginas/deseados/deseados.component';
 import { InfoComponent } from './paginas/info/info.component';
 import { CompraComponent } from './paginas/compra/compra.component';
 import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'/inicio', pathMatch:'full'},
@@ -22,5 +23,6 @@ export const routes: Routes = [
     {path:'deseados',component:DeseadosComponent},
     {path:'info',component:InfoComponent},
     {path:'compra',component:CompraComponent},
-    {path:'login',component:LoginComponent}
+    {path:'login',component:LoginComponent},
+    {path:'register',component:RegisterComponent}
 ];

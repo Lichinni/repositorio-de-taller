@@ -1,14 +1,13 @@
 .icono{
     height: 75px;
     width: 75px;
-    padding: 10px;
     border-radius: 10px;
     overflow: hidden;
     transition: 0.3s ease-in-out;
 }
 
 .icono:hover{
-    transform: scale(1.1);
+    transform: scale(1);
     transition: 0.3s ease-in-out;
 }
 
@@ -20,15 +19,13 @@
 #navbar-container{
     display: flex;
     justify-content: center; /*lo centra orizontalmente*/
-    gap: 20px; /*espacio entre las tarjetas*/
     flex-wrap: wrap; /*permite que se acomoden en pantallas chicas (flexea y warpea)*/
-    padding: 20px;
 }
 
 .nav-item {
-    background: #f2deff;
-    border-radius: 7%;
-    transform: scale(1.05);
+    background: #fff0;
+    height: 100%;
+    transform: scale(1);
     transition: all 0.3s ease-in-out;
 }
 
