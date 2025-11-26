@@ -13,7 +13,7 @@
 }
 
 .navbar{
-    background: linear-gradient(to left, #e0b2ff, #deacff);
+    background: linear-gradient(to left, #d99fff, #d494ff);
     width: 100%;
 }
 
@@ -26,13 +26,13 @@
 }
 
 .nav-item {
-    background: linear-gradient(to bottom, #ffffff, #f2deff);
+    background: #f2deff;
     border-radius: 7%;
     transform: scale(1.05);
     transition: all 0.3s ease-in-out;
 }
 
 .nav-item:hover {
-    background: linear-gradient(to top, #ffffff, #ffffff);
+    background: #ffffff;
     transform: scale(1.1);
 }

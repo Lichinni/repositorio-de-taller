@@ -31,7 +31,7 @@ export class LoginComponent {
     this.error = null;
     this.cargando = true;
     this.authService.login(this.usuario).subscribe({
-      //se ejecuta cuandop el servidor devuelve una respuesta exitosa
+      //se ejecuta cuando el servidor devuelve una respuesta exitosa
       next : (response : any) => {
         //el backend debe devolver: id, nombre, email, rol y token
         if (response?.token && response?.rol) {
@@ -41,7 +41,7 @@ export class LoginComponent {
           //guarda tambien los datos completos  del usuario
           localStorage.setItem('usuario', JSON. stringify(response));
 
-          //restringe sgun el rool devuelto por el backend
+          //restringe segun el rol devuelto por el backend
           this.router.navigate([
             response.rol === 'admin' ? '/admin' : '/inicio'
           ])

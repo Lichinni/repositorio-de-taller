@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { RouterLinkActive, RouterModule } from '@angular/router';
 import { CarritoService } from '../../servicios/carrito.service';
 import { Producto } from '../../modelos/producto.models';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, CommonModule, RouterModule],
+  imports: [RouterLinkActive, CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
