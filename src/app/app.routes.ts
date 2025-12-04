@@ -10,6 +10,7 @@ import { InfoComponent } from './paginas/info/info.component';
 import { CompraComponent } from './paginas/compra/compra.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AdminComponent } from './paginas/admin/admin.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'/inicio', pathMatch:'full'},
@@ -24,5 +25,6 @@ export const routes: Routes = [
     {path:'info',component:InfoComponent},
     {path:'compra',component:CompraComponent},
     {path:'login',component:LoginComponent},
-    {path:'register',component:RegisterComponent}
+    {path:'register',component:RegisterComponent},
+    {path:'admin',component:AdminComponent}
 ];

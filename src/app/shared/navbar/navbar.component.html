@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid" class="navbar">
+  <div class="container-fluid navbar">
     <a class="navbar-brand" href=""><img class="icono" src="https://thumbs.dreamstime.com/b/gato-divertido-que-se-coloca-con-el-carro-de-la-compra-105519874.jpg"></a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,15 +30,37 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/carrito">Carrito</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/register">Iniciar Sesión</a>
+        <li class="nav-item" *ngIf="usuario?.rol === 'admin'">
+          <a routerLink="/admin" routerLinkActive="active" class="nav-link fw-bold">
+            Admin
+          </a>
         </li>
       </ul>
 
-      <form class="d-flex" role="search">
+
+      <ng-container *ngIf="authService.isLoggedIn(); else sinSesion">
+        <span class="user-label me-3">
+          {{ usuario?.nombre }} ({{ usuario?.rol }})
+        </span>
+        <button (click)="logout()" class="btn btn-sm btn-outline-light me-2">
+          Cerrar sesión
+        </button>
+      </ng-container>
+
+
+      <ng-template #sinSesion>
+        <a routerLink="/login" class="btn btn-sm btn-outline-light me-2">
+          Iniciar sesión
+        </a>
+        <a routerLink="/register" class="btn btn-sm btn-dark">
+          Registrarse
+        </a>
+      </ng-template>
+
+      <!-- <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
+      </form> -->
     </div>
   </div>
 </nav>

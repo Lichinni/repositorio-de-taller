@@ -33,7 +33,7 @@ export class  RegisterComponent {
     this.authService.register(this.nuevoUsuario).subscribe({
 
       next: () => {
-        this.router.navigate(['/inicio-sesion']);
+        this.router.navigate(['/login']);
       },
 
       error: (err) => {

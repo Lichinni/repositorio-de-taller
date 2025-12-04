@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { DeseadosService } from '../../servicios/deseados.service';
 import { InfoService } from '../../servicios/info.service';
 import { FormsModule } from '@angular/forms';
+import { ProductService } from '../../servicios/product.service';
 
 @Component({
   selector: 'app-productos',
@@ -13,123 +14,61 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
 })
+
 export class ProductosComponent {
+  // Lista de productos obtenidos desde el backend.
+  productos: Producto[] = [];
 
-  constructor (private CarritoService: CarritoService, private DeseadosService:DeseadosService, private InfoService: InfoService){};
+  // Estado para mostrar un spinner o mensaje de carga.
+  cargando = true;
 
-  
-  Productos: Producto[]=[
-    {
-      id: 1,
-      nombre: 'Gato naranja',
-      precio:10,
-      descripcion:'Gato naranja. Riesgo de ser naranja',
-      disponibilidad:true,
-      imagen:'gatonaranja.png',
-      categoria:'',
-      marca:'a'
-    },
+  // Texto para mostrar un error en la interfaz si algo falla.
+  error = '';
 
-    {
-      id: 2,
-      nombre: 'Gato mago',
-      precio:250,
-      descripcion:'Gato con acceso al conocimiento de los grimorios mas antiguos y arcanos.',
-      disponibilidad:true,
-      imagen:'gatomago.png',
-      categoria:'',
-      marca:'a'
-    },
+  constructor(
+    // Servicio encargado de obtener productos desde el backend.
+    private productService: ProductService,
 
-    {
-      id: 3,
-      nombre: 'Gato de batalla',
-      precio:50,
-      descripcion:'Gato basico.',
-      disponibilidad:true,
-      imagen:'gatodebatalla.png',
-      categoria:'',
-      marca:'a'
-    },
+    // Servicio responsable de agregar productos al carrito y manejar su estado.
+    private carritoService: CarritoService,
 
-    {
-      id: 4,
-      nombre: 'Gato alien',
-      precio:666,
-      disponibilidad:true,
-      descripcion:'⏃⌰⟟⟒⋏ ☊⏃⏁, ⎎⍀⍜⋔ ⏃⋏ ⏃⌰⟟⟒⋏ ⌿⌰⏃⋏⟒⏁ ⍙⟟⏁⊑ ⏃⌰⟟⟒⋏ ⌿⟒⍜⌿⌰⟒',
-      imagen:'gatoalien.png',
-      categoria:'',
-      marca:'a'
-    },
+    // Servicio encargado de gestionar los productos favoritos del usuario.
+    private deseadosService: DeseadosService
+  ) {}
 
-    {
-      id: 5,
-      nombre: 'Gato nojao',
-      precio:50,
-      descripcion:'ta nojao',
-      disponibilidad:true,
-      imagen:'fatonojao.png',
-      categoria:'',
-      marca:'a'
-    },
+  // Método del ciclo de vida, se ejecuta al inicializar el componente.
+  ngOnInit(): void {
+    this.cargarProductos(); // Carga inicial de productos.
+  }
 
-    {
-      id: 6,
-      nombre: 'Gato aspiradora',
-      precio:750,
-      descripcion:'Perfecto para limpieza en el hogar.',
-      disponibilidad:true,
-      imagen:'gatoaspiradora.png',
-      categoria:'',
-      marca:'a'
-    },
+  // Solicita al backend la lista completa de productos.
+  cargarProductos(): void {
+    this.productService.getProducts().subscribe({
 
-    {
-      id: 7,
-      nombre: 'Gato tipico',
-      precio:11,
-      descripcion:'Me mintieron la imagen no era un png',
-      disponibilidad:true,
-      imagen:'gato.png',
-      categoria:'',
-      marca:'a'
-    },
+      // Si la petición es exitosa:
+      next: (res: any) => {
+        this.productos = res;    // Se asigna la lista recibida.
+        this.cargando = false;   // Finaliza el estado de carga.
+      },
 
-    {
-      id: 8,
-      nombre: 'Gato',
-      precio:750,
-      descripcion:'',
-      disponibilidad:true,
-      imagen:'gatoegipcio.png',
-      categoria:'',
-      marca:'a'
-    },
+      // Si ocurre un error:
+      error: (err) => {
+        console.error('Error al cargar productos:', err);
+        this.error = 'No se pudieron cargar los productos.'; // Mensaje visible al usuario.
+        this.cargando = false;
+      }
+    });
+  }
 
-    {
-      id: 9,
-      nombre: 'Gato',
-      precio:750,
-      descripcion:'',
-      disponibilidad:true,
-      imagen:'',
-      categoria:'',
-      marca:'a'
-    },
-  ]
+
 
   agregar(producto:Producto){
-    this.CarritoService.agregarAlCarrito(producto)
+    this.carritoService.agregarAlCarrito(producto)
     alert('producto en el carrito (◕‿◕)')
   };
 
   agregarDeseados(producto:Producto){
-    this.DeseadosService.agregarEnDeseados(producto)
-  }
-
-  info(producto:Producto){
-    this.InfoService.mostrarInfo(producto)
+    this.deseadosService.agregarEnDeseados(producto)
   }
 
   searchTerm: string = '';
@@ -140,11 +79,11 @@ export class ProductosComponent {
   maxPrecio: number | null = null;
 
   get categories(): string[]{
-    return [...new Set(this.Productos.map(p => p.categoria))];
+    return [...new Set(this.productos.map(p => p.categoria))];
   }
 
     get marca(): string[]{
-    return [...new Set(this.Productos.map(p => p.marca))];
+    return [...new Set(this.productos.map(p => p.marca))];
   }
 
   OnSearch(event:Event): void{
@@ -160,7 +99,7 @@ export class ProductosComponent {
   }
 
   get filteredProducts(): Producto[]{
-    return this.Productos.filter(p =>
+    return this.productos.filter(p =>
       (this.searchTerm === '' || p.nombre.toLowerCase().includes(this.searchTerm.toLowerCase())) &&
       (this.selectedCategory === '' || p.categoria === this.selectedCategory) &&
       (this.selectedBrand === '' || p.marca === this.selectedBrand) &&

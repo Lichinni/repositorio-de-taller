@@ -38,7 +38,7 @@ export class ProductService {
 
   //Envía un nuevo producto al servidos usando formData
   //
-  addProduct(id:number, formdata:FormData): Observable<any>{
+  addProduct(formdata:FormData): Observable<any>{
     return this.http.post(this.apiUrl, formdata,{
       headers: this.getHeaders()
     }).pipe(catchError(this.handleError))
