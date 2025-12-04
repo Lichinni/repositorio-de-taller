@@ -60,8 +60,6 @@ export class ProductosComponent {
     });
   }
 
-
-
   agregar(producto:Producto){
     this.carritoService.agregarAlCarrito(producto)
     alert('producto en el carrito (◕‿◕)')
